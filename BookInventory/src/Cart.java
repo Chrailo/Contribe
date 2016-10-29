@@ -3,14 +3,18 @@ import java.awt.EventQueue;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
+
 import java.awt.Window.Type;
+
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -27,6 +31,7 @@ public class Cart extends JFrame {
 	int total;
 	private JTable table;
 	private JButton btnRemove;
+	JLabel label;
 	
 	public Cart() {
 		setType(Type.POPUP);
@@ -70,6 +75,9 @@ public class Cart extends JFrame {
 			}
 		});
 		btnRemove.setBounds(10, 11, 89, 23);
+		label = new JLabel("Price " );
+		label.setBounds(109,11, 89, 23);
+		contentPane.add(label);;
 		contentPane.add(btnRemove);
 		
 	}
@@ -81,6 +89,7 @@ public class Cart extends JFrame {
 		booksBt.add(b);
 		System.out.println(booksBt.size() + "   cart size");
 		removed = new String[qts.size()];
+		label.setText("Price : " + total);
 	}
 	
 	public void fillTable()
